@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>758</width>
+    <height>482</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="GLWidget" name="MyGLWidget" native="true">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetNoConstraint</enum>
+        </property>
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Тест смешивания</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="blend1">
+          <item>
+           <property name="text">
+            <string>GL_ZERO</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>GL_ONE</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>GL_DST_COLOR</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>GL_ONE_MINUS_DST_COLOR</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>GL_SRC_ALPHA</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>GL_ONE_MINUS_SRC_ALPHA</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>GL_DST_ALPHA</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>GL_ONE_MINUS_DST_ALPHA</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>GL_SRC_ALPHA_SATURATE</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="blend2">
+          <item>
+           <property name="text">
+            <string>GL_ZERO</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>GL_ONE</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>GL_SRC_COLOR</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>GL_ONE_MINUS_SRC_COLOR</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>GL_SRC_ALPHA</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>GL_ONE_MINUS_SRC_ALPHA</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>GL_DST_ALPHA</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>GL_ONE_MINUS_DST_ALPHA</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spinBox">
+          <property name="maximum">
+           <number>10</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+   <zorder></zorder>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>GLWidget</class>
+   <extends>QWidget</extends>
+   <header>glwidget.h</header>
+   <container>1</container>
+   <slots>
+    <slot>changeShapePicture(QString)</slot>
+    <slot>changeX(int)</slot>
+    <slot>changeY(int)</slot>
+    <slot>changeWidth(int)</slot>
+    <slot>changeHeight(int)</slot>
+    <slot>changeFunc(int)</slot>
+    <slot>changeRef(int)</slot>
+    <slot>changeSfactor(QString)</slot>
+    <slot>changeDfactor(QString)</slot>
+    <slot>changeType(QString)</slot>
+    <slot>do_blend1(QString)</slot>
+    <slot>do_blend2(QString)</slot>
+    <slot>do_atest(QString)</slot>
+    <slot>do_atest2(int)</slot>
+    <slot>cut_x(int)</slot>
+    <slot>cut_y(int)</slot>
+    <slot>change_height(int)</slot>
+    <slot>change_width(int)</slot>
+    <slot>step(int)</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>blend1</sender>
+   <signal>currentTextChanged(QString)</signal>
+   <receiver>MyGLWidget</receiver>
+   <slot>do_blend1(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>746</x>
+     <y>51</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>316</x>
+     <y>235</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>blend2</sender>
+   <signal>currentTextChanged(QString)</signal>
+   <receiver>MyGLWidget</receiver>
+   <slot>do_blend2(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>746</x>
+     <y>79</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>536</x>
+     <y>287</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MyGLWidget</receiver>
+   <slot>step(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>603</x>
+     <y>98</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>477</x>
+     <y>182</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
