@@ -34,7 +34,7 @@ void GLWidget::drawPicture(){
     glLineWidth(2);
     glBegin(GL_LINE_STRIP);
     glColor4f(1.0f, 0.0f, 0.0f, 1.0f);//красный
-    for(int i = 0; i < 6; i++)
+    for(int i = 0; i < points.size(); i++)
     {
         glVertex2f(points[i].x(), points[i].y());
     }
@@ -43,7 +43,7 @@ void GLWidget::drawPicture(){
     glPointSize(5);
     glBegin(GL_POINTS);
     glColor4f(0.0f, 0.0f, 0.0f, 0.6f);//черный
-    for(int i = 0; i < 6; i++)
+    for(int i = 0; i < points.size(); i++)
     {
         glVertex2f(points[i].x(), points[i].y());
     }
@@ -109,7 +109,7 @@ void GLWidget::mousePressEvent(QMouseEvent *event)
 
     if (event->button() != Qt::LeftButton)
         return;
-    for (int i = 0; i <6; i++) {
+    for (int i = 0; i <points.size(); i++) {
 
         if (qAbs(points[i].x() - 700*event->pos().x()/winSizeW) < 7 && qAbs(points[i].y() -  500*(winSizeH-event->pos().y())/winSizeH) < 10) {
             if (event->button() == Qt::LeftButton) {
